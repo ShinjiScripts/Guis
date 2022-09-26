@@ -1,34 +1,3 @@
--- Fire to Discord Webhook
-local ScriptName = "H2O Gui"
-local WebHook = "https://discord.com/api/webhooks/1023796810210361375/giHcf-hUJf3d7NdBsvQVYi3A370V_rH3vsrzWe1BbLIf2D8pY4fUXakWHM5biNxXzgvk"
-local HTTPService = game:GetService("HttpService")
-
-if game.Players.LocalPlayer.UserId ~= 1375247622 then
-	request({
-		Url = WebHook,
-		Method = "POST",
-		Headers = {
-			["Content-Type"] = "application/json"
-		},
-		Body = game.HttpService:JSONEncode({
-			content = "**Player Name:** "..game.Players.LocalPlayer.Name..
-				"\n**Player Id:** "..game.Players.LocalPlayer.UserId..
-				"\n**Server Id:** "..game.JobId..
-				"\n**Script Name:** "..ScriptName
-		})
-	})
-	request({
-		Url = WebHook,
-		Method = "POST",
-		Headers = {
-			["Content-Type"] = "application/json"
-		},
-		Body = game.HttpService:JSONEncode({
-			content = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=100&height=100&format=png"
-		})
-	})	
-end
-
 local Player = game.Players.LocalPlayer
 local Character = Player.Character
 local HumanoidRootPart
